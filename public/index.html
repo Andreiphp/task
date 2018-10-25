@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="loader" class="loader">
+    <div class="center">
+    </div>
+</div>
+<div class="wrapper">
+    <div class="control">
+        <form method="get" id="myForm" name="myForm">
+            <input type="text" id="info">
+            <input type="checkbox" id="checkBox">
+            <button type="button" id="length">длинна</button>
+            <button type="button" id="padstr">строка</button>
+        </form>
+        <div class="error" id="error">
+            <p id="error_text">
+
+            </p>
+        </div>
+    </div>
+    <div id="result" class="results">
+        <ul id="list_result">
+
+        </ul>
+    </div>
+</div>
+</body>
+<script src="task.js"></script>
+<script src="drag.js"></script>
+</html>
