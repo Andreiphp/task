@@ -68,13 +68,14 @@ class Drop {
 
         document.addEventListener('mouseup', function (event) {
             if (!this.curentTarget.clone) {
+                this.curentTarget = {};
                 return false;
             } else {
                 let target = event.target;
                 if (target && target !== this.curentTarget.element && target.nodeName === 'LI' && target !== this.curentTarget.clone) {
-                    if(this.result.children[0] === target){
+                    if (this.result.children[0] === target) {
                         this.result.insertBefore(this.curentTarget.element, this.result.firstChild);
-                    }else {
+                    } else {
                         this.result.insertBefore(this.curentTarget.element, target.nextSibling || target);
                     }
 

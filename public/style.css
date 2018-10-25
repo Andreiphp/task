@@ -59,7 +59,6 @@ body, html {
     position: relative;
     max-height: calc(100vh - 83px);
     overflow-y: auto;
-    min-height: 40px;
 }
 
 #list_result li {
