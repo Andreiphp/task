@@ -5,6 +5,8 @@ class Drop {
         this.pageX = null;
         this.pageY = null;
         this.sortStart();
+        this.g = 0;
+        this.direction = false;
     }
 
     createClone() {
@@ -62,6 +64,12 @@ class Drop {
 
             this.curentTarget.clone.style.transform = "translate3d(" + (event.pageX - this.curentTarget.shiftX) + 'px,' + (event.pageY - this.curentTarget.shiftY) + 'px,' + 20 + 'px' + ")";
 
+            if (event.pageY < this.g) {
+                this.direction = true;
+            } else {
+                this.direction = false;
+            }
+            this.g = event.pageY;
             return false;
 
         }.bind(this));
@@ -76,9 +84,13 @@ class Drop {
                     if (this.result.children[0] === target) {
                         this.result.insertBefore(this.curentTarget.element, this.result.firstChild);
                     } else {
-                        this.result.insertBefore(this.curentTarget.element, target.nextSibling || target);
-                    }
+                        if (this.direction) {
+                            this.result.insertBefore(this.curentTarget.element, target);
+                        } else {
+                            this.result.insertBefore(this.curentTarget.element, target.nextSibling);
+                        }
 
+                    }
                 }
                 this.curentTarget.clone.remove();
                 this.curentTarget = {};
